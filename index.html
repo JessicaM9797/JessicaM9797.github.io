@@ -155,6 +155,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ATT&amp;CK应用日志安全分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/06/ATT&CK应用日志安全分析/">ATT&amp;CK应用日志安全分析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/06/ATT&CK应用日志安全分析/" class="archive-article-date">
+  	<time datetime="2019-12-06T12:36:23.373Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ATT-amp-CK"><a href="#ATT-amp-CK" class="headerlink" title="ATT&amp;CK"></a>ATT&amp;CK</h1><ol>
+<li>Adversarial Tactics<br>Techniques<br>Common Knowledge</li>
+<li>ATT&amp;CK模型<ul>
+<li>PRE-ATT&amp;CK：优先级定义、选择目标、信息收集、发现脆弱点、攻击性利用开发平台、建立和维护基础设施、人员的开发、建立能力、测试能力、分段能力。</li>
+<li>ATT&amp;CK for Enterprise：访问初始化、执行、常驻、提权、防御规避、访问凭证、发现、横向移动、收集、数据获取、命令和控制。</li>
+<li>ATT&amp;CK for Mobile</li>
+</ul>
+</li>
+<li>SIGMA:从日志事件中描述特定事件的检测方法</li>
+<li><p>基于ATT&amp;CK模型的攻击测试工具<br> 1、MITRE Caldera：一个自动攻击仿真系统，能够在Windows企业网络中执行攻陷后的恶意行为。</p>
+<p> 2、Endgame RTA：一个针对Windows的Python脚本框架，用于蓝队测试他们对基于ATT&amp;CK模型的恶意技术的检测能力。Endgame RTA可生成超过50种不同的ATT&amp;CK 战术，包括一个二进制应用程序，可执行所需的活动。</p>
+<p> 3、Red Canary Atomic Red Team：一个开源的小型，高度可移植的测试集合，映射到MITRE ATT和CK框架中的相应技术。 这些测试可用于验证检测和响应技术和过程。</p>
+<p> 4、Uber Metta: 一个用于基础对抗模拟的工具，将多步的攻击者行为解析为yaml文件，并使用Celery将操作进行排队，自动化执行。   </p>
+</li>
+</ol>
+<h1 id="sigma"><a href="#sigma" class="headerlink" title="sigma"></a>sigma</h1><p>基于规则的开源日志分析工具</p>
+<h1 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h1><h1 id="es"><a href="#es" class="headerlink" title="es"></a>es</h1><ol>
+<li>开源分布式搜索引擎</li>
+<li>特点：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。</li>
+</ol>
+<h1 id="logstash"><a href="#logstash" class="headerlink" title="logstash"></a>logstash</h1><p>对日志进行收集、过滤，存储供以后使用<br>input  {<br>   /<em>使用syslog转发日志</em>/<br>   syslog  {<br>     port  =&gt;”514”<br>            }<br>}<br>filter{</p>
+<p>}<br>output {<br>    elasticsearch {<br>        hosts =&gt; [“接收ip:9200”]<br>        index =&gt; “nginx-access-log-%{+YYYY.MM.dd.HH}”<br>    }<br>}</p>
+<h1 id="kibana"><a href="#kibana" class="headerlink" title="kibana"></a>kibana</h1><p>汇总、分析和搜索重要数据日志</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/06/ATT&CK应用日志安全分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-block-chain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -226,149 +322,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/29/block-chain/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ATT&amp;CK" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ATT-amp-CK"><a href="#ATT-amp-CK" class="headerlink" title="ATT&amp;CK"></a>ATT&amp;CK</h1><ol>
-<li>Adversarial Tactics<br>Techniques<br>Common Knowledge</li>
-<li>ATT&amp;CK模型<ul>
-<li>PRE-ATT&amp;CK：优先级定义、选择目标、信息收集、发现脆弱点、攻击性利用开发平台、建立和维护基础设施、人员的开发、建立能力、测试能力、分段能力。</li>
-<li>ATT&amp;CK for Enterprise：访问初始化、执行、常驻、提权、防御规避、访问凭证、发现、横向移动、收集、数据获取、命令和控制。</li>
-<li>ATT&amp;CK for Mobile</li>
-</ul>
-</li>
-<li>SIGMA:从日志事件中描述特定事件的检测方法</li>
-<li><p>基于ATT&amp;CK模型的攻击测试工具<br> 1、MITRE Caldera：一个自动攻击仿真系统，能够在Windows企业网络中执行攻陷后的恶意行为。</p>
-<p> 2、Endgame RTA：一个针对Windows的Python脚本框架，用于蓝队测试他们对基于ATT&amp;CK模型的恶意技术的检测能力。Endgame RTA可生成超过50种不同的ATT&amp;CK 战术，包括一个二进制应用程序，可执行所需的活动。</p>
-<p> 3、Red Canary Atomic Red Team：一个开源的小型，高度可移植的测试集合，映射到MITRE ATT和CK框架中的相应技术。 这些测试可用于验证检测和响应技术和过程。</p>
-<p> 4、Uber Metta: 一个用于基础对抗模拟的工具，将多步的攻击者行为解析为yaml文件，并使用Celery将操作进行排队，自动化执行。</p>
-<p> 分析工具</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/ATT&CK/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ELK" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/ELK/">ELK</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/14/ELK/" class="archive-article-date">
-  	<time datetime="2019-04-14T03:32:34.514Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="es"><a href="#es" class="headerlink" title="es"></a>es</h1><ol>
-<li>开源分布式搜索引擎</li>
-<li>特点：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。</li>
-</ol>
-<h1 id="logstash"><a href="#logstash" class="headerlink" title="logstash"></a>logstash</h1><p>对日志进行收集、过滤，存储供以后使用<br>input  {<br>   /<em>使用syslog转发日志</em>/<br>   syslog  {<br>     port  =&gt;”514”<br>            }<br>}<br>filter{</p>
-<p>}<br>output {<br>    elasticsearch {<br>        hosts =&gt; [“接收ip:9200”]<br>        index =&gt; “nginx-access-log-%{+YYYY.MM.dd.HH}”<br>    }<br>}</p>
-<h1 id="kibana"><a href="#kibana" class="headerlink" title="kibana"></a>kibana</h1><p>汇总、分析和搜索重要数据日志</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">架构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/ELK/">展开全文 >></a>
         </p>
       
 
@@ -1033,7 +986,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
