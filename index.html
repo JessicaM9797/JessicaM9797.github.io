@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -155,6 +155,150 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jessicam9797.github.io/2023/07/05/tosem23-HiSenDroid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="卷rui">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卷rui's blog">
+      <meta itemprop="description" content="积累日常论文阅读与技术细节的自留地">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 卷rui's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/05/tosem23-HiSenDroid/" class="post-title-link" itemprop="url">TOSEM’23：Demystifying Hidden Sensitive Operations in Android Apps</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-07-05 20:21:12 / 修改时间：21:09:43" itemprop="dateCreated datePublished" datetime="2023-07-05T20:21:12+08:00">2023-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>题目</strong>：<strong>TOSEM’23：Demystifying Hidden Sensitive Operations in Android Apps</strong></p>
+<p><strong>总结</strong>：针对恶意安卓软件检测问题，定义了隐藏敏感操作HSO，并通过静态分析方法进行检测，在1304个数据样本上进行评估，检测出2201个可疑的HSOs</p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>安卓操作系统的开源特性使得合法的开发者需要和恶意软件开发者共享安卓的生态系统，而大量的恶意软件给安卓生态系统也带来了恶劣的影响，学术界针对恶意软件检测提出了一系列方案，如基于静态代码分析的方法、基于动态代码执行的方法、基于机器学习的方法，但恶意软件的设计也随着这些检测方案不断进化，从而绕过这些检测手段：</p>
+<ul>
+<li><p>为了绕过静态分析：恶意软件通常会利用一些复杂的代码混淆手段，导致静态分析结果出现false negative（将原本恶意的软件判定为非恶意）</p>
+</li>
+<li><p>为了绕过动态分析：攻击者会在恶意软件中设计一些满足特定条件才会执行的代码，称其为“<strong>逻辑炸弹</strong>”</p>
+</li>
+</ul>
+<p>静态分析受逻辑炸弹的影响比动态分析小一些，尤其是静态分析中的敏感数据流分析，已经有非常多的研究（FLowDroid开始），但仍然有一些众所周知的局限性：</p>
+<ul>
+<li><p>静态分析相关研究过度近似（over-approximation）导致误报，因此需要大量人工调查，无法规模化</p>
+</li>
+<li><p>动态验证过程中回应了<strong>隐藏的敏感操作</strong></p>
+</li>
+</ul>
+<p>隐藏敏感操作（Hidden Sentitive Operations, HSOs）虽然已经被定义，但缺乏相关的检测和解释工作【研究空白】</p>
+<h2 id="关键问题—什么是隐藏敏感操作HSO？"><a href="#关键问题—什么是隐藏敏感操作HSO？" class="headerlink" title="关键问题—什么是隐藏敏感操作HSO？"></a>关键问题—<strong>什么是隐藏敏感操作HSO？</strong></h2><ul>
+<li><p><strong>定义1 隐藏敏感分支（HSB</strong>）：若代码分支B满足如下规则，则将其定义为隐藏敏感分支</p>
+<ul>
+<li><p>B包含敏感的安卓API（隐藏分支应该实现一些不同于正常分支的敏感行为）</p>
+</li>
+<li><p>B不涉及判定语句中条件表达式中的任何变量</p>
+</li>
+</ul>
+<p>  直观理解：访问敏感安卓API的“if分支”，且完全独立于if条件和if语句的另一个分支
+  </p>
+</li>
+<li><p><strong>定义2 隐藏敏感操作（HSO）</strong>：令C表示if语句的判定条件，则HSO就是一种由条件C触发的HSB，且条件C包含通过安卓系统API或系统变量获得的值（敏感数据）</p>
+</li>
+</ul>
+<h2 id="解决方案—静态分析检测器HiSenDroid"><a href="#解决方案—静态分析检测器HiSenDroid" class="headerlink" title="解决方案—静态分析检测器HiSenDroid"></a>解决方案—静态分析检测器HiSenDroid</h2><p>提出原型工具HiSenDroid，部署了一个自动化的静态程序分析器来检测安卓应用程序中的HSOs，通过执行一系列静态分析，如调用图分析、前向数据流分析、过程间后向数据流分析等等，对于已经暴露的HSOs，进一步记录详细信息并解释为何将其标记为HSO</p>
+<ul>
+<li><p><strong>定位隐藏敏感分支位置</strong></p>
+<ul>
+<li><p>静态遍历安卓APK中DEX文件出现的所有方法</p>
+</li>
+<li><p>为每个方法构建过程内控制流图CFG，并遍历该图定位所有的条件判定语句</p>
+</li>
+<li><p>根据最新安卓API权限映射进一步提取两个分支是否访问敏感API（if 分支和else 分支）</p>
+</li>
+<li><p>若某一分支（或两个分支）访问了敏感API，则将其划分为潜在HSO</p>
+</li>
+</ul>
+<p>  <em>PS： 为了遍历所有分支，首先需要对输入的APK文件构建调用图（call graph），然而安卓应用程序没有统一的入口点（如main()），因此需要通过创建虚拟主方法将所有分离的代码链接在一起</em>
+  </p>
+</li>
+<li><p><strong>触发条件判定潜在HSO</strong></p>
+<ul>
+<li><p>定义普通语句和条件判定语句之间的代码块为条件触发块CTB</p>
+</li>
+<li><p>给定潜在的HSO，检查系统API是否涉及该HSO的CTB定义语句</p>
+</li>
+<li><p>若不涉及，则判定这个潜在HSO结果错误，不做进一步分析</p>
+</li>
+</ul>
+<p>  <em>PS：推断触发条件时，要考虑过程间分析</em>
+  </p>
+</li>
+<li><p><strong>可疑HSO检测与解释</strong></p>
+<ul>
+<li>由于检测规则可能引入假阳性，因此建立一个常规使用列表，对非恶意的HSO进行过滤</li>
+</ul>
+</li>
+</ul>
+<h2 id="方案评价"><a href="#方案评价" class="headerlink" title="方案评价"></a>方案评价</h2><p>    研究了20000个应用程序，保留其中1304个样本，包括982个恶意软件样本和322个良性样本。共检测出2201个可疑HSOs，其中1790个来自恶意样本，441个来自良性样本</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
