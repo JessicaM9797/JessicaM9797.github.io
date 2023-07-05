@@ -336,9 +336,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-07-04 15:54:29 / 修改时间：22:52:58" itemprop="dateCreated datePublished" datetime="2023-07-04T15:54:29+08:00">2023-07-04</time>
+      <time title="创建时间：2023-07-04 15:54:29" itemprop="dateCreated datePublished" datetime="2023-07-04T15:54:29+08:00">2023-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-05 21:12:37" itemprop="dateModified" datetime="2023-07-05T21:12:37+08:00">2023-07-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -379,7 +385,7 @@
 <li><p>执行应用程序共谋攻击</p>
 </li>
 </ol>
-<p>作者定义**<em>atypical ICC method</em> (AICC method)*<em>表示没有按照原定目的实施的组件间通信方法，依赖于</em>PendingIntents*和 <em>IntentSenders</em> ，PendingIntent可以看作是对Intent的一个封装，因此这两类方法均只能通过已有的的Intent来描述</p>
+<p>作者定义 <strong>atypical ICC method (AICC method)</strong> 表示没有按照原定目的实施的组件间通信方法，依赖于<em>PendingIntents</em>和 <em>IntentSenders</em> ，PendingIntent可以看作是对Intent的一个封装，因此这两类方法均只能通过已有的的Intent来描述</p>
 <h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>开源工具RAICC：通过插桩识别并解决安卓系统中的AICC问题</p>
 
       
@@ -537,7 +543,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-04 18:04:49" itemprop="dateModified" datetime="2023-07-04T18:04:49+08:00">2023-07-04</time>
+      <time title="修改时间：2023-07-05 21:11:48" itemprop="dateModified" datetime="2023-07-05T21:11:48+08:00">2023-07-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -583,14 +589,14 @@ hexo -v
 <li>打开blog文件夹，在该文件夹下安装选定的主题  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf scaffolds <span class="built_in">source</span> themes _config.landscape.yml _config.yml package.json yarn.lock</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/V-Vincen/hexo-theme-livemylife.git</span><br><span class="line"><span class="built_in">mv</span> hexo-theme-livemylife/* ./</span><br><span class="line"><span class="built_in">rm</span> -rf hexo-theme-livemylife</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
 <li>通过修改配置文件<code>_config.yml</code>选择主题  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit _config.yml <span class="comment">#没安装gedit的话用 sudo apt install gedit 安装一下～</span></span><br></pre></td></tr></table></figure>
   打开配置文件后找到theme并修改：  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Theme config</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">livemylife</span></span><br></pre></td></tr></table></figure></li>
-<li>修改配置文件中Deployment相关信息  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">git@github.com:JessicaM9797/JessicaM9797.github.io</span> <span class="comment"># 根据自己的githuba用户名修改即可</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件中Deployment相关信息  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">git@github.com:JessicaM9797/JessicaM9797.github.io</span> <span class="comment"># 根据自己的github用户名修改即可</span></span><br><span class="line"><span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="7-博客撰写与部署（持续更新中…）"><a href="#7-博客撰写与部署（持续更新中…）" class="headerlink" title="7. 博客撰写与部署（持续更新中…）"></a>7. 博客撰写与部署（持续更新中…）</h2><p>想撰写新博客时，通过 下面的命令新建一个md文件</p>
+<h2 id="7-博客撰写与部署（持续更新中…）"><a href="#7-博客撰写与部署（持续更新中…）" class="headerlink" title="7. 博客撰写与部署（持续更新中…）"></a>7. 博客撰写与部署（持续更新中…）</h2><p>想撰写新博客时，通过下面的命令新建一个md文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;blog title&gt;</span><br></pre></td></tr></table></figure>
 
 <p>这里创建的博客会保存到<code>blog/public/source/_posts</code>中，至于用什么编辑器就看自己爱好啦，我目前用vs感觉还不赖</p>
 <p>博客写好后就是hexo部署三连：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g <span class="comment"># 等于hexo generate </span></span><br><span class="line">hexo d <span class="comment"># 等于exo deploy</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g <span class="comment"># 等于hexo generate </span></span><br><span class="line">hexo d <span class="comment"># 等于hexo deploy</span></span><br></pre></td></tr></table></figure>
 
 
 
