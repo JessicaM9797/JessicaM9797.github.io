@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jessicam9797.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="app-in-app生态系统超级应用：集成了多种由第三方提供服务的移动应用app-in-app生态系统：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统小程序：小程序类似于W3C标准下的渐进式Web应用（progressive web application,PWA），包含html,css,js脚本以及用于配置文件(json) 关键技术 web">
+    <meta name="description" content="app-in-app生态系统基础介绍W3C发布的{小程序标准白皮书](https:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;mini-app-white-paper&#x2F;) 超级应用：集成了多种由第三方提供服务的移动应用app-in-app生态系统：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统小程序：小程序类似于W3C标准下的渐进式Web应用（progr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mini_program_basic">
 <meta property="og:url" content="https://jessicam9797.github.io/2023/07/10/mini-program-basic/index.html">
 <meta property="og:site_name" content="卷rui&#39;s blog">
-<meta property="og:description" content="app-in-app生态系统超级应用：集成了多种由第三方提供服务的移动应用app-in-app生态系统：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统小程序：小程序类似于W3C标准下的渐进式Web应用（progressive web application,PWA），包含html,css,js脚本以及用于配置文件(json) 关键技术 web">
+<meta property="og:description" content="app-in-app生态系统基础介绍W3C发布的{小程序标准白皮书](https:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;mini-app-white-paper&#x2F;) 超级应用：集成了多种由第三方提供服务的移动应用app-in-app生态系统：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统小程序：小程序类似于W3C标准下的渐进式Web应用（progr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-10T11:35:17.000Z">
-<meta property="article:modified_time" content="2023-07-11T08:43:56.903Z">
+<meta property="article:modified_time" content="2023-07-12T15:16:40.912Z">
 <meta property="article:author" content="卷rui">
 <meta property="article:tag" content="小程序">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#app-in-app%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">app-in-app生态系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="nav-number">2.</span> <span class="nav-text">关键技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADAPI%E4%BA%A4%E4%BA%92%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">小程序中API交互问题</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#app-in-app%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">app-in-app生态系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">基础介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E3%80%81%E5%90%8E%E7%AB%AF%E7%90%86%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">前端、后端理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="nav-number">2.</span> <span class="nav-text">关键技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADAPI%E4%BA%A4%E4%BA%92%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">小程序中API交互问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%A1%E6%A0%B8"><span class="nav-number">4.</span> <span class="nav-text">小程序审核</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -205,7 +205,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-11 16:43:56" itemprop="dateModified" datetime="2023-07-11T16:43:56+08:00">2023-07-11</time>
+      <time title="修改时间：2023-07-12 23:16:40" itemprop="dateModified" datetime="2023-07-12T23:16:40+08:00">2023-07-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,12 +226,14 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="app-in-app生态系统"><a href="#app-in-app生态系统" class="headerlink" title="app-in-app生态系统"></a>app-in-app生态系统</h2><p><strong>超级应用</strong>：集成了多种由第三方提供服务的移动应用<br><strong>app-in-app生态系统</strong>：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统<br><strong>小程序</strong>：小程序类似于W3C标准下的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps">渐进式Web应用（progressive web application,PWA）</a>，包含html,css,js脚本以及用于配置文件(json)</p>
-<h2 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h2><ol>
+    <div class="post-body" itemprop="articleBody"><h2 id="app-in-app生态系统"><a href="#app-in-app生态系统" class="headerlink" title="app-in-app生态系统"></a>app-in-app生态系统</h2><h3 id="基础介绍"><a href="#基础介绍" class="headerlink" title="基础介绍"></a>基础介绍</h3><p>W3C发布的{小程序标准白皮书](<a target="_blank" rel="noopener" href="https://www.w3.org/TR/mini-app-white-paper/">https://www.w3.org/TR/mini-app-white-paper/</a>)</p>
+<p><strong>超级应用</strong>：集成了多种由第三方提供服务的移动应用<br><strong>app-in-app生态系统</strong>：超级应用允许第三方开发者再超级应用内部集成小程序，从而构成了类似操作系统的app-in-app生态系统<br><strong>小程序</strong>：小程序类似于W3C标准下的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps">渐进式Web应用（progressive web application,PWA）</a>，包含html,css,js脚本以及用于配置文件(json)</p>
+<h3 id="前端、后端理解"><a href="#前端、后端理解" class="headerlink" title="前端、后端理解"></a>前端、后端理解</h3><h2 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h2><ol>
 <li>webview组件：由谷歌官方为移动端app提供的加载和展示web页面等浏览器功能的组件，基于webkit引擎</li>
-<li>JSBridge：为webview组件和原生应用之间提供通信桥梁，将原生应用的API提供给webviw中的JS代码<br> eg： 通过JSBridge</li>
+<li>JSBridge：为webview组件和原生应用之间提供通信桥梁，将原生应用的API提供给webviw中的JS代码<br> eg： 通过JSBridge调用原生应用的API</li>
 </ol>
 <h2 id="小程序中API交互问题"><a href="#小程序中API交互问题" class="headerlink" title="小程序中API交互问题"></a>小程序中API交互问题</h2><p>与web应用相比，小程序能够接触超级应用和系统本身的资源，比如小程序可以通过JS API调用微信支付或者蓝牙配对等功能，这里的JS API是由超级应用通过JSBridge处理的。</p>
+<h2 id="小程序审核"><a href="#小程序审核" class="headerlink" title="小程序审核"></a>小程序审核</h2><p>第三方开发者需要将打包后的应用提交到微信平台，经过平台审核后发布，这一措施降低了恶意软件的威胁</p>
 
     </div>
 
